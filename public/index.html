@@ -6,6 +6,7 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link href="/fontawesome/css/all.css" rel="stylesheet">
 
     <!-- External Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -30,7 +31,7 @@
       <span>tweeter</span>
       <div>
         <p><b>Writer</b> a new tweete</p>
-        <p>down arrow</p>
+        <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
 
@@ -47,7 +48,7 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form method="POST" action="/tweets">
+        <form method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" rows="1"></textarea>
           <div>
