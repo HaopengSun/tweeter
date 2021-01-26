@@ -17,12 +17,14 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweeter.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -48,7 +50,8 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <form method="POST" action="/tweets/">
+        <!-- <form method="POST" action="/tweets/"> -->
+        <form>
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" rows="1"></textarea>
           <div>
@@ -56,6 +59,40 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section id="tweet">
+        <article>
+          <header>
+            <p><i class="far fa-smile-wink"></i> user</p>
+            <p class="user">@user</p>
+          </header>
+          <p>tweet content</p>
+          <hr>
+          <footer>
+            <p>time ago</p>
+            <p>
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-share"></i>
+              <i class="fas fa-heart"></i>
+            </p>
+          </footer>
+        </article>
+        <article>
+          <header>
+            <p><i class="far fa-smile-wink"></i> user</p>
+            <p class="user">@user</p>
+          </header>
+          <p>tweet content</p>
+          <hr>
+          <footer>
+            <p>time ago</p>
+            <p>
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-share"></i>
+              <i class="fas fa-heart"></i>
+            </p>
+          </footer>
+        </article>
       </section>
     </main>
   </body>

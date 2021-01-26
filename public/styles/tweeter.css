@@ -12,6 +12,8 @@
 }
 
 #tweet header {
+  margin-top: 10px;
+  margin-bottom: 20px;
   height: 40px;
   background-color:  #f4f1ec;
   display: flex;
@@ -22,6 +24,10 @@
 
 #tweet p {
   margin: 5px;
+}
+
+#tweet .user {
+  color: #d8ecf3;
 }
 
 #tweet hr {
