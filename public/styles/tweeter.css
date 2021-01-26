@@ -1,0 +1,40 @@
+#tweet {
+   flex-grow: 2;
+   margin-top: 10px;
+   display: flex;
+   flex-direction: column;
+   font-weight: bold;
+}
+
+#tweet article {
+  border: 3px solid darkgrey;
+  margin-top: 10px;
+}
+
+#tweet header {
+  height: 40px;
+  background-color:  #f4f1ec;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+#tweet p {
+  margin: 5px;
+}
+
+#tweet hr {
+  margin: 5px;
+  height: 3px;
+  color:gray;
+  background-color:gray
+}
+
+#tweet footer {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 15px;
+}
