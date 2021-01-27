@@ -27,6 +27,7 @@ $(document).ready(() => {
   }
 
   const createTweetElement = function(tweet) {
+    // const date = tweet.created_at;
     const date = new Date(parseInt(tweet.created_at));
     let $tweet = `
     <article>
@@ -53,18 +54,19 @@ $(document).ready(() => {
     event.preventDefault();
     const inputUser = $('#tweet-text').val();
     const userName = $('#user-name').text();
-    const userPortrait = $('#user-portrait').attr('src');
+    // const userPortrait = $('#user-portrait').attr('src');
     const date = new Date();
+    const datestamp = Date.parse(date);
     const input =   {
       "user": {
         "name": userName,
-        "avatars": userPortrait,
+        "avatars": "https://i.imgur.com/DVpDmdR.png",
         "handle": "@SirIsaac"
       },
       "content": {
         "text": inputUser
       },
-      "created_at": date
+      "created_at": datestamp
     };
 
     // form submission validation check
@@ -74,7 +76,9 @@ $(document).ready(() => {
       alert('your tweet is too long!');
     }
 
-    console.log(input);
+    const element = createTweetElement(input);
+    console.log(element);
+    $('#tweet').prepend(element);
 
     // const url = '';
     // $.ajax({
