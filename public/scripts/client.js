@@ -50,36 +50,49 @@ $(document).ready(() => {
 
   $('.new-tweet').submit(function(event){
     event.preventDefault();
-    console.log('submiting');
-    const inputUser = $('.new-tweet form').serialize();
-    console.log(inputUser);
 
+    const inputUser = $('#tweet-text').val();
+    console.log(inputUser);
     // form submission validation check
     if (!inputUser) {
       $("#empty").slideDown(1000);
     } else if (inputUser.length > 140) {
       $("#long").slideDown(1000);
     } else {
+      // get the user input
+      const input = $('.new-tweet form').serialize();
+      console.log(inputUser);
+
       // post user input to the db
       $.ajax({
         url: 'http://localhost:8080/tweets',
         type: 'POST',
-        data: inputUser,
+        data: input,
       }).done(function(result){
         console.log(result);
       }).fail(function(){
-        alert('error');
+        console.log('error');
       }).always(function(){
         console.log('complete!');
       });
+
+      // get the newest tweet and prepend the list
+      $.ajax('/tweets', { method: 'GET' }).then(function(data){
+        const $newest = newestTweet(data);
+        $('#tweet').prepend($newest);
+      }).catch((err) => console.log(err));
+
+      // clear the input area and set counter back to 140
+      $('#tweet-text').val('');
+      $('.counter').val('140');
     };
+  });
 
-    $.ajax('/tweets', { method: 'GET' }).then(function(data){
-      const $newest = newestTweet(data);
-      $('#tweet').prepend($newest);
-    }).catch((err) => console.log(err));
+  $("#up1").click(function(){
+    $("#empty").slideUp(1000);
+  });
 
-    $('#tweet-text').val('');
-    $('.counter').val('140');
+  $("#up2").click(function(){
+    $("#long").slideUp(1000);
   });
 })

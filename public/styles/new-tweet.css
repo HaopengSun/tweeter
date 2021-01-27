@@ -38,10 +38,24 @@
   color: aliceblue;
 }
 
-.new-tweet #empty {
+#empty {
   display: none;
 }
 
-.new-tweet #long {
+#long {
   display: none;
+}
+
+#empty button{
+  float: right;
+  background-color: darkblue;
+  color: aliceblue;
+  font-weight: bold;
+}
+
+#long button{
+  float: right;
+  background-color: darkblue;
+  color: aliceblue;
+  font-weight: bold;
 }
