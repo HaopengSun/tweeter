@@ -47,6 +47,15 @@ $(document).ready(() => {
     return $tweet;
   }
 
+  $('#pointer').click(function(){
+    console.log('pointer clicked!');
+    if ($(".new-tweet").first().is(":hidden")) {
+      $(".new-tweet").slideDown(1000);
+    } else {
+      $(".new-tweet").slideUp(1000);
+    }
+  });
+
   $('.new-tweet').submit(function(event){
     event.preventDefault();
 
@@ -84,6 +93,7 @@ $(document).ready(() => {
       // clear the input area and set counter back to 140
       $('#tweet-text').val('');
       $('.counter').val('140');
+      $(".new-tweet").slideUp(1000);
     };
   });
 
