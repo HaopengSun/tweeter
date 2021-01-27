@@ -8,11 +8,15 @@
 
 $(document).ready(() => {
 
-  const url = '/tweets';
-  $.ajax(url, { method: 'GET' }).then(function(data){
-    const $tweet = renderTweets(data);
-    $('#tweet').append($tweet);
-  }).catch((err) => console.log(err));
+  const loadTweets = function(){
+    const url = '/tweets';
+    $.ajax(url, { method: 'GET' }).then(function(data){
+      const $tweet = renderTweets(data);
+      $('#tweet').append($tweet);
+    }).catch((err) => console.log(err));
+  }
+  
+  loadTweets();
 
   const renderTweets = function(tweets) {
     let result = '';
@@ -69,15 +73,19 @@ $(document).ready(() => {
     } else if (inputUser.length > 140) {
       alert('your tweet is too long!');
     }
-    
+
     console.log(input);
-    const url = $('.new-tweet form').attr('action');
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: input
-    }).done(function(data){
-      $('#tweet').append(data);
-    });
+
+    // const url = '';
+    // $.ajax({
+    //   url: url,
+    //   type: 'POST',
+    //   data: input
+    // }).done(function(data){
+    //   $('#tweet').prepend(data);
+    // });
+
+    $('#tweet-text').val('');
+    $('.counter').val('140');
   })
 })
