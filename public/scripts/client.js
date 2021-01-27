@@ -12,15 +12,12 @@ $(document).ready(() => {
 
   const renderTweets = function(tweets) {
     let result = '';
+    $('#tweet').empty();
     const sortedTweets = tweets.sort((a, b) => b.created_at - a.created_at)
     for (const tweet of sortedTweets) {
       result += createTweetElement(tweet);
     }
     return result;
-  }
-
-  const newestTweet = function(tweets) {
-    return createTweetElement(tweets[tweets.length - 1]);
   }
 
   const createTweetElement = function(tweet) {
@@ -77,18 +74,12 @@ $(document).ready(() => {
         type: 'POST',
         data: input,
       }).done(function(){
-        console.log('finish post!');
+        loadTweets();
       }).fail(function(){
         console.log('error!');
       }).always(function(){
         console.log('complete!');
       });
-
-      // get the newest tweet and prepend the list
-      $.ajax('/tweets', { method: 'GET' }).then(function(data){
-        const $newest = newestTweet(data);
-        $('#tweet').prepend($newest);
-      }).catch((err) => console.log(err));
 
       // clear the input area and set counter back to 140
       $('#tweet-text').val('');
