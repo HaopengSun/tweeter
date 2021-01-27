@@ -9,7 +9,7 @@
 $(document).ready(() => {
 
   const url = '/tweets';
-  $.get(url, { method: 'GET' }).then(function(data){
+  $.ajax(url, { method: 'GET' }).then(function(data){
     const $tweet = renderTweets(data);
     $('#tweet').append($tweet);
   }).catch((err) => console.log(err));
@@ -62,6 +62,14 @@ $(document).ready(() => {
       },
       "created_at": date
     };
+
+    // form submission validation check
+    if (!inputUser) {
+      alert('cannot submit an empty tweet!');
+    } else if (inputUser.length > 140) {
+      alert('your tweet is too long!');
+    }
+    
     console.log(input);
     const url = $('.new-tweet form').attr('action');
     $.ajax({
