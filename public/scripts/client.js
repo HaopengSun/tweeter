@@ -52,6 +52,7 @@ $(document).ready(() => {
 
   $('.new-tweet').submit(function(event){
     event.preventDefault();
+    console.log('submiting');
     const inputUser = $('#tweet-text').val();
     const userName = $('#user-name').text();
     // const userPortrait = $('#user-portrait').attr('src');
@@ -77,17 +78,23 @@ $(document).ready(() => {
     }
 
     const element = createTweetElement(input);
-    console.log(element);
     $('#tweet').prepend(element);
 
-    // const url = '';
-    // $.ajax({
-    //   url: url,
-    //   type: 'POST',
-    //   data: input
-    // }).done(function(data){
-    //   $('#tweet').prepend(data);
-    // });
+    // post user input to the db
+    const url = $('.new-tweet form').attr('action');
+    $.ajax({
+      url,
+      type: 'POST',
+      data: input,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+    }).done(function(data){
+      $('#tweet').prepend(data);
+    }).fail(function(){
+      alert('error');
+    }).always(function(){
+      console.log('complete!');
+    });
 
     $('#tweet-text').val('');
     $('.counter').val('140');
