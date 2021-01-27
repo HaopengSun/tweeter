@@ -20,8 +20,7 @@ $(document).ready(() => {
   }
 
   const newestTweet = function(tweets) {
-    const sortedTweets = tweets.sort((a, b) => b.created_at - a.created_at)
-    return createTweetElement(sortedTweets[0]);
+    return createTweetElement(tweets[tweets.length - 1]);
   }
 
   const createTweetElement = function(tweet) {
@@ -68,10 +67,10 @@ $(document).ready(() => {
         url: 'http://localhost:8080/tweets',
         type: 'POST',
         data: input,
-      }).done(function(result){
-        console.log(result);
+      }).done(function(){
+        console.log('finish post!');
       }).fail(function(){
-        console.log('error');
+        console.log('error!');
       }).always(function(){
         console.log('complete!');
       });
