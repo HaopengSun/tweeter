@@ -18,6 +18,7 @@ nav span {
 
 nav div {
   margin: 1.5em;
+  width: 168px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,4 +45,15 @@ header {
 header h2 {
   margin-bottom: 20px;
   margin-top: 0px;
+}
+
+nav #pointer :hover {
+  display: inline-block;
+  padding-top: 10px;
+}
+
+nav #new-button {
+  top: 20px;
+  right: 20px;
+  position: absolute;
 }
