@@ -89,7 +89,7 @@ $(document).ready(() => {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
     }).done(function(data){
-      $('#tweet').prepend(data);
+      
     }).fail(function(){
       alert('error');
     }).always(function(){
