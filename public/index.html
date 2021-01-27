@@ -39,19 +39,18 @@
 
     <header>
       <div>
-          <img src="/images/profile-hex.png"> 
+          <img id="user-portrait" src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2 id="user-name">Amy Mansell</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <!-- <form method="POST" action="/tweets/"> -->
-        <form>
+        <form method="POST" action="/tweets/">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text" rows="1"></textarea>
           <div>
