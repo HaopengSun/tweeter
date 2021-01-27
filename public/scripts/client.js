@@ -65,7 +65,7 @@ $(document).ready(() => {
     console.log(input);
     const url = $('.new-tweet form').attr('action');
     $.ajax({
-      url: ,
+      url: url,
       type: 'POST',
       data: input
     }).done(function(data){
