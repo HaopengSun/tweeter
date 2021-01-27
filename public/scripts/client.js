@@ -1,11 +1,3 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
-// Fake data taken from initial-tweets.json
-
 $(document).ready(() => {
 
   const loadTweets = function(){
@@ -20,10 +12,16 @@ $(document).ready(() => {
 
   const renderTweets = function(tweets) {
     let result = '';
-    for (const tweet of tweets) {
+    const sortedTweets = tweets.sort((a, b) => b.created_at - a.created_at)
+    for (const tweet of sortedTweets) {
       result += createTweetElement(tweet);
     }
     return result;
+  }
+
+  const newestTweet = function(tweets) {
+    const sortedTweets = tweets.sort((a, b) => b.created_at - a.created_at)
+    return createTweetElement(sortedTweets[0]);
   }
 
   const createTweetElement = function(tweet) {
@@ -53,50 +51,35 @@ $(document).ready(() => {
   $('.new-tweet').submit(function(event){
     event.preventDefault();
     console.log('submiting');
-    const inputUser = $('#tweet-text').val();
-    const userName = $('#user-name').text();
-    // const userPortrait = $('#user-portrait').attr('src');
-    const date = new Date();
-    const datestamp = Date.parse(date);
-    const input =   {
-      "user": {
-        "name": userName,
-        "avatars": "https://i.imgur.com/DVpDmdR.png",
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": inputUser
-      },
-      "created_at": datestamp
-    };
+    const inputUser = $('.new-tweet form').serialize();
+    console.log(inputUser);
 
     // form submission validation check
     if (!inputUser) {
-      alert('cannot submit an empty tweet!');
+      $("#empty").slideDown(1000);
     } else if (inputUser.length > 140) {
-      alert('your tweet is too long!');
-    }
+      $("#long").slideDown(1000);
+    } else {
+      // post user input to the db
+      $.ajax({
+        url: 'http://localhost:8080/tweets',
+        type: 'POST',
+        data: inputUser,
+      }).done(function(result){
+        console.log(result);
+      }).fail(function(){
+        alert('error');
+      }).always(function(){
+        console.log('complete!');
+      });
+    };
 
-    const element = createTweetElement(input);
-    $('#tweet').prepend(element);
-
-    // post user input to the db
-    const url = $('.new-tweet form').attr('action');
-    $.ajax({
-      url,
-      type: 'POST',
-      data: input,
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-    }).done(function(data){
-      
-    }).fail(function(){
-      alert('error');
-    }).always(function(){
-      console.log('complete!');
-    });
+    $.ajax('/tweets', { method: 'GET' }).then(function(data){
+      const $newest = newestTweet(data);
+      $('#tweet').prepend($newest);
+    }).catch((err) => console.log(err));
 
     $('#tweet-text').val('');
     $('.counter').val('140');
-  })
+  });
 })
