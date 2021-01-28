@@ -20,16 +20,23 @@ $(document).ready(() => {
     return result;
   }
 
+  const escape =  function(str) {
+    let p = document.createElement('p');
+    p.appendChild(document.createTextNode(str));
+    return p.innerHTML;
+  }
+
   const createTweetElement = function(tweet) {
     // const date = tweet.created_at;
     const date = new Date(parseInt(tweet.created_at));
+    const userInput = escape(tweet.content.text);
     let $tweet = `
     <article>
       <header>
         <p><img src="${tweet.user.avatars}"> ${tweet.user.name}</p>
         <p class="user">${tweet.user.handle}</p>
       </header>
-      <p>${tweet.content.text}</p>
+      ${userInput}
       <hr>
       <footer>
         <p>${date}</p>
@@ -57,7 +64,6 @@ $(document).ready(() => {
     event.preventDefault();
 
     const inputUser = $('#tweet-text').val();
-    console.log(inputUser);
     // form submission validation check
     if (!inputUser) {
       $("#empty").slideDown(1000);
@@ -66,7 +72,7 @@ $(document).ready(() => {
     } else {
       // get the user input
       const input = $('.new-tweet form').serialize();
-      console.log(inputUser);
+      console.log(input);
 
       // post user input to the db
       $.ajax({
