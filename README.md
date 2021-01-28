@@ -14,22 +14,22 @@ This repository is the starter code for the project: Students will fork and clon
 ## Screenshots
 
 home page for desktop screen
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/deaktop-screen.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/deaktop-screen.png)
 
 adding tweets for desktop screen
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/desktop-screen-add-tweet.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/desktop-screen-add-tweet.png)
 
 adding back-to-top buttom
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/desktop-screen-backToTop-button.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/desktop-screen-backToTop-button.png)
 
 home page for phtot screen
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/photo-screen.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/photo-screen.png)
 
 hit the add-new-tweet button and the input form slides down
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/photo-screen-slidedown-input-form.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/photo-screen-slidedown-input-form.png)
 
 adding tweets for photo screen
-!["home"](https://github.com/HaopengSun/tweeter/screenshots/photo-screen-add-tweet.png)
+!["home"](https://github.com/HaopengSun/tweeter/blob/master/screenshots/photo-screen-add-tweet.png)
 
 ## Dependencies
 
