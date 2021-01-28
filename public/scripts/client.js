@@ -92,7 +92,9 @@ $(document).ready(() => {
       // clear the input area and set counter back to 140
       $('#tweet-text').val('');
       $('.counter').val('140');
-      $(".new-tweet").slideUp(1000);
+      if (window.innerWidth < 1024) {
+        $(".new-tweet").slideUp(1000);
+      }
     };
   });
 

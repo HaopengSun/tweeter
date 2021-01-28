@@ -22,10 +22,11 @@
 }
 
 #tweet header {
-  width: 90%;
+  width: 100%;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   margin-left: 0px;
+  margin-right: 0px;
   height: 60px;
   background-color:  #f4f1ec;
   display: flex;
