@@ -52,11 +52,13 @@ $(document).ready(() => {
   }
 
   $('#pointer').click(function(){
-    console.log('pointer clicked!');
-    if ($(".new-tweet").first().is(":hidden")) {
-      $(".new-tweet").slideDown(1000);
-    } else {
-      $(".new-tweet").slideUp(1000);
+    console.log(window.innerWidth);
+    if (window.innerWidth < 1024) {
+      if ($(".new-tweet").first().is(":hidden")) {
+        $(".new-tweet").slideDown(1000);
+      } else {
+        $(".new-tweet").slideUp(1000);
+      }
     }
   });
 

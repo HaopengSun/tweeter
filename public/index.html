@@ -39,32 +39,34 @@
       </div>
     </nav>
 
-    <header>
-      <div>
-          <img id="user-portrait" src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2 id="user-name">Amy Mansell</h2>
-      </div>
-    </header>
+    <div class="width-screen">
+      <header>
+        <div>
+            <img id="user-portrait" src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2 id="user-name">Amy Mansell</h2>
+        </div>
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <p id="empty">You cannot submit an empty tweet!  <button id="up1">hide</button></p>
-        <p id="long">Your tweet is too long!  <button id="up2">hide</button></p>
-        <form method="POST" action="/tweets/">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text" rows="1"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section id="tweet"></section>
-      <button id="top" title="top"><i class="fas fa-arrow-up"></i></button>
-    </main>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <p id="empty">You cannot submit an empty tweet!  <button id="up1">hide</button></p>
+          <p id="long">Your tweet is too long!  <button id="up2">hide</button></p>
+          <form method="POST" action="/tweets/">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text" rows="1"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section id="tweet"></section>
+        <button id="top" title="top"><i class="fas fa-arrow-up"></i></button>
+      </main>
+    </div>
   </body>
 </html>
